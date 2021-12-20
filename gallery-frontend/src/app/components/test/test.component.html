@@ -1,0 +1,19 @@
+<h1>gallery</h1><br>
+
+<input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+
+<div class="file-upload">
+
+   {{selectedFileName}}
+
+    <button (click)="fileUpload.click()">select file</button>
+    <button (click)="uploadSelectedFile()">upload</button>
+    <button (click)="getImageList()">get img list</button>
+
+    <div *ngFor="let id of ids">
+        <!-- <span>{{id}}</span> -->
+        <img src="http://localhost:8080/api/files/test/{{id}}" alt="">
+    </div>
+
+</div>
+

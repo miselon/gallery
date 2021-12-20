@@ -1,0 +1,9 @@
+.file-input{
+    display: none;
+}
+
+img{
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+}

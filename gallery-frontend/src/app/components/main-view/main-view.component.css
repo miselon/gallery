@@ -1,0 +1,45 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.input-container{
+    display: flex;
+}
+.input-container i{
+    position: absolute;
+    margin-left: 245px;
+    margin-top: -3px;
+}
+
+
+.main-container h2{
+    text-align: center;
+    margin-top: -0.6rem;
+    text-transform: uppercase;
+}
+
+.main-container h3{
+    margin-left: 2px
+}
+
+.main-container button{
+    margin-top: 2rem;
+}
+
+#registration-form{
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    margin-top: 0.5rem;
+    outline-style: solid;
+    outline-color: var(--color-medium);
+    outline-width: 2px;
+    padding: 1rem;
+}
+
+
+

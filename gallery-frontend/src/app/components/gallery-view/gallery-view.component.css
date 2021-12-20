@@ -1,0 +1,85 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.edit-container{
+    background: var(--color-darker);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+}
+
+.edit-container i{
+    margin: 10px;
+}
+
+.image-grid{
+    margin-top: 2rem;
+    margin-bottom: 6.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+
+.image-container{
+    margin: 1rem;
+    /* margin-top: 4.5rem; */
+    flex-grow: 0;
+    flex-shrink: 0;
+    scale: 95%;
+    transition: all, 0.4s;
+}
+
+.image-container.clickable:hover{
+    scale: 100%;
+}
+
+.image-container i{
+    position: absolute;
+    margin-left: -160px;
+    margin-top: 130px;
+    color: rgb(165, 0, 0);
+    scale: 500%;
+    transition: all, 0.2s;
+}
+.image-container i:hover{
+    color: red;
+}
+
+.full-size-image-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 40;
+}
+
+.dimmer{
+    background: var(--color-darker);
+    opacity: 75%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 40;
+}
+
+.full-image{
+    opacity: 100%;
+    max-width: 90%;
+    max-height: 90%;
+    z-index: 41;
+}

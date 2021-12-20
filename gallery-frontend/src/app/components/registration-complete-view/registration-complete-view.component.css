@@ -1,0 +1,11 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7rem;
+}
+
+.main-container h2{
+    text-transform: uppercase;
+}

@@ -1,0 +1,24 @@
+<div class="main">
+
+    <div *ngIf="ownGallery" class="edit-container">
+        <input type="file" accept=".jpg,.jpeg,.png" class="hidden" (change)="onFileSelected($event)" #fileUpload>
+        <i class="material-icons clickable" (click)="fileUpload.click()">add</i>
+        <i class="material-icons clickable" (click)="onEditButtonClick()">edit</i>
+    </div>
+
+    <div *ngIf="galleryEmpty">
+        <h1>gallery empty ;(</h1>
+    </div>
+
+    <div *ngIf="username!=''" class="image-grid">
+        <div *ngFor="let id of ids" [ngClass]="editModeActive ? 'image-container' : 'image-container clickable'">
+            <img (mousedown)="onImageClick(id)" src="{{apiUrl}}/files/{{username}}/{{id}}?thumb=true" alt="">
+            <i [ngClass]="editModeActive ? 'material-icons' : 'material-icons hidden'" (click)="onDeleteButtonClick(id)">delete</i>
+        </div>
+    </div>
+</div>
+
+<div class="full-size-image-container" *ngIf="selectedId != ''">
+    <div (click)="exitFullSizeImage()" class="dimmer"></div>
+    <img class="full-image" src="{{apiUrl}}/files/{{username}}/{{selectedId}}" alt="">
+</div>

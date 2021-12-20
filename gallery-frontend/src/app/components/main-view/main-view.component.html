@@ -1,0 +1,25 @@
+<div class="main-container">
+    <h1>need a place for your photos?</h1>
+    <h2>sign up to get your own gallery!</h2>
+    <form id="registration-form" [formGroup]="registrationForm" (ngSubmit)="onRegistrationFormSubmit()">
+        <h3>email</h3> 
+        <div class="input-container">
+            <input class="form-input" type="text" formControlName="email" (change)="onEmailInputChange()">
+            <i *ngIf="emailValid" class="material-icons">check</i>
+            <i *ngIf="!emailValid" class="material-icons">close</i>
+        </div>
+        <h3>username</h3> 
+        <div class="input-container">
+            <input class="form-input" type="text" formControlName="username" (change)="onUsernameInputChange()">
+            <i *ngIf="usernameValid" class="material-icons">check</i>
+            <i *ngIf="!usernameValid" class="material-icons">close</i>
+        </div>
+        <h3>password</h3> 
+        <div class="input-container">   
+            <input class="form-input" type="password" formControlName="password">
+            <i *ngIf="getRegistrationFormControl('password')?.valid ; else invalidPasswordIcon" class="material-icons">check</i>
+            <ng-template #invalidPasswordIcon><i class="material-icons">close</i></ng-template>
+        </div>
+        <button type="submit" [disabled]="registrationForm.invalid || !usernameValid">sign up</button>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+<!-- HEADER -->
+<div class="navbar-sliders">
+    <div id="left-slider" [class]="searchBarActive?'navbar-section left active':'navbar-section left'">
+        <div class="search-bar-container">
+            <input type="text" placeholder="find user ..." #searchBarValue>
+            <i class="material-icons clickable" (click)="onSearchSubmit(searchBarValue.value)">arrow_forward</i>
+        </div>
+    </div>
+    <div id="center-slider" [class]="alertBarActive?'navbar-section active':'navbar-section'">
+        <div class="alert-container">
+            <h2>{{alertText}}</h2>
+        </div>
+    </div>
+    <div id="right-slider" [class]="loginFormActive?'navbar-section active':'navbar-section'">
+        <form class="login-dialog" id="login-form" [formGroup]="loginForm" (ngSubmit)="onLoginFormSubmit()">
+            <!-- <h3>username</h3> -->
+            <input class="form-input" type="text" formControlName="username" placeholder="username">
+            <!-- <h3>password</h3> -->
+            <input class="form-input" type="password" formControlName="password" placeholder="password">
+            <button type="submit" [disabled]="loginForm.invalid">sign in</button>
+        </form>
+    </div>
+</div>
+<div class="navbar">
+    <div class="navbar-section left">
+        <i class="material-icons clickable" (mousedown)="onSearchButtonClick()">search</i>
+    </div>
+    <div class="navbar-section center ">
+        <h1>{{heading}}</h1>
+    </div>
+    <div class="navbar-section right">
+        <i *ngIf="!userLoggedIn" class="material-icons clickable" (mousedown)="onLoginButtonClick()">login</i>
+        <a *ngIf="userLoggedIn" class="user-link" href="{{clientUrl}}/{{currentUser}}">{{currentUser}}</a>
+        <i *ngIf="userLoggedIn" class="material-icons clickable" (click)="onLogoutButtonClick()">logout</i>
+    </div>
+</div>
+
+<!-- BODY -->
+<div class="router">
+    <router-outlet></router-outlet>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <a href="https://www.github.com/miselon">github.com/miselon</a>
+</div>
+
+<!-- LOADING -->
+<div *ngIf="loading" class="loading-screen">
+    <div class="lds-ripple"><div></div><div></div></div>
+</div>
